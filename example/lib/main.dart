@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:flutter/services.dart';
+
+// FRB の再エクスポートを読み込む（lib/osc_upper_body_tracking.dart）
 import 'package:osc_upper_body_tracking/osc_upper_body_tracking.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -17,7 +19,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  final _oscUpperBodyTrackingPlugin = OscUpperBodyTracking();
 
   @override
   void initState() {
@@ -25,26 +26,25 @@ class _MyAppState extends State<MyApp> {
     initPlatformState();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
+  // Rust を初期化して、FRB 生成関数を呼ぶ
   Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
+    String text;
     try {
-      platformVersion =
-          await _oscUpperBodyTrackingPlugin.getPlatformVersion() ??
-          'Unknown platform version';
+      // エントリポイント初期化（複数回呼んでもOK）
+      await RustLib.init();
+
+      // 生成済みのトップレベル関数（lib/src/rust/api/simple.dart）
+      // `greet({required String name})` がある前提
+      text = greet(name: 'Hi ');
     } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      text = 'Failed to initialize Rust.';
+    } catch (e) {
+      text = 'Error: $e';
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
-
     setState(() {
-      _platformVersion = platformVersion;
+      _platformVersion = text;
     });
   }
 
