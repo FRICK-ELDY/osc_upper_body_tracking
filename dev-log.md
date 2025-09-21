@@ -8,6 +8,7 @@ flutter create --template=plugin --platforms=windows,linux,macos,android,ios
 cargo install flutter_rust_bridge_codegen
 flutter_rust_bridge_codegen integrate -t plugin --rust-crate-name ubct --rust-crate-dir ./rust/ubct
 flutter_rust_bridge_codegen generate
+cargo build --manifest-path .\rust\ubct\Cargo.toml --release
 ```
 
 ```

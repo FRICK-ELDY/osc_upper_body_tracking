@@ -467,13 +467,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dd8b5dd2ae5ed71462c540258bedcb51965123ad7e7ccf4b9a8cafaa4a63576d"
 
 [[package]]
-name = "osc_upper_body_tracking"
-version = "0.1.0"
-dependencies = [
- "flutter_rust_bridge",
-]
-
-[[package]]
 name = "oslog"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -634,6 +627,13 @@ name = "typenum"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
+
+[[package]]
+name = "ubct"
+version = "0.1.0"
+dependencies = [
+ "flutter_rust_bridge",
+]
 
 [[package]]
 name = "unicode-ident"

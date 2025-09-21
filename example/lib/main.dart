@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
 
       // 生成済みのトップレベル関数（lib/src/rust/api/simple.dart）
       // `greet({required String name})` がある前提
-      text = greet(name: 'Hi ');
+      text = greet(name: 'ubct');
     } on PlatformException {
       text = 'Failed to initialize Rust.';
     } catch (e) {
