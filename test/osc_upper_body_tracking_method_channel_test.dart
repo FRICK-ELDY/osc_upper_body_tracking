@@ -5,20 +5,20 @@ import 'package:osc_upper_body_tracking/osc_upper_body_tracking_method_channel.d
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelOscUpperBodyTracking platform = MethodChannelOscUpperBodyTracking();
+  MethodChannelOscUpperBodyTracking platform =
+      MethodChannelOscUpperBodyTracking();
   const MethodChannel channel = MethodChannel('osc_upper_body_tracking');
 
   setUp(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        return '42';
-      },
-    );
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+          return '42';
+        });
   });
 
   tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null);
   });
 
   test('getPlatformVersion', () async {
