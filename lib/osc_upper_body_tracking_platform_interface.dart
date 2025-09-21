@@ -8,7 +8,8 @@ abstract class OscUpperBodyTrackingPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static OscUpperBodyTrackingPlatform _instance = MethodChannelOscUpperBodyTracking();
+  static OscUpperBodyTrackingPlatform _instance =
+      MethodChannelOscUpperBodyTracking();
 
   /// The default instance of [OscUpperBodyTrackingPlatform] to use.
   ///

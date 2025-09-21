@@ -7,13 +7,13 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockOscUpperBodyTrackingPlatform
     with MockPlatformInterfaceMixin
     implements OscUpperBodyTrackingPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 }
 
 void main() {
-  final OscUpperBodyTrackingPlatform initialPlatform = OscUpperBodyTrackingPlatform.instance;
+  final OscUpperBodyTrackingPlatform initialPlatform =
+      OscUpperBodyTrackingPlatform.instance;
 
   test('$MethodChannelOscUpperBodyTracking is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelOscUpperBodyTracking>());
@@ -21,7 +21,8 @@ void main() {
 
   test('getPlatformVersion', () async {
     OscUpperBodyTracking oscUpperBodyTrackingPlugin = OscUpperBodyTracking();
-    MockOscUpperBodyTrackingPlatform fakePlatform = MockOscUpperBodyTrackingPlatform();
+    MockOscUpperBodyTrackingPlatform fakePlatform =
+        MockOscUpperBodyTrackingPlatform();
     OscUpperBodyTrackingPlatform.instance = fakePlatform;
 
     expect(await oscUpperBodyTrackingPlugin.getPlatformVersion(), '42');
