@@ -1,5 +1,5 @@
 [package]
-name = "osc_upper_body_tracking"
+name = "ubct"
 version = "0.1.0"
 edition = "2021"
 
