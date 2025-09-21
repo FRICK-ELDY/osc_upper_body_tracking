@@ -1,0 +1,3 @@
+[submodule "rust/thirdparty/opencv"]
+	path = rust/thirdparty/opencv
+	url = https://github.com/opencv/opencv.git
