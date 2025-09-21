@@ -5,6 +5,12 @@ flutter create --template=plugin --platforms=windows,linux,macos,android,ios
 ```
 
 ```
+cargo install flutter_rust_bridge_codegen
+flutter_rust_bridge_codegen integrate -t plugin --rust-crate-name ubct --rust-crate-dir ./rust/ubct
+flutter_rust_bridge_codegen generate
+```
+
+```
 git submodule add https://github.com/opencv/opencv.git rust/thirdparty/opencv
 git submodule update --init --recursive
 ```
