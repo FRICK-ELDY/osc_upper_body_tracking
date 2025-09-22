@@ -36,3 +36,5 @@ migrate_working_dir/
 **/generated_plugin_registrant.*
 **/generated_plugins.cmake
 **/Flutter/GeneratedPluginRegistrant.swift
+
+target
